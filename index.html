@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <title>KeyBoard</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div>
+            <div class="instruments">
+                <div id="instruments__pen" class="instruments-button">
+                    <img class="instruments-icon" src="assets/images/pencil.svg" alt="pen"/>
+                    Pencil
+                </div>
+                <div id="instruments__eyedropper" class="instruments-button">
+                    <img class="instruments-icon" src="assets/images/eyedropper.svg" alt="pen"/>
+                    Eyedropper
+                </div>
+                <div id="instruments__fillbucket" class="instruments-button">
+                    <img class="instruments-icon" src="assets/images/bucket.svg" alt="pen"/>
+                    Fill bucket
+                </div>
+            </div>
+            <div class="colors">
+                <div class="colors__choose">
+                    <div class="click-color" id = "current" value="green"> </div>
+                    <div>Current color</div>
+                </div>
+                <div class="colors__choose">
+                    <div class="click-color" id = "prev" value="orange"> </div>
+                    <div>Previous color</div>
+                </div>
+                <div class="colors__choose">
+                    <div class="click-color" id = "red" value="red"> </div>
+                    <div>Red color</div>
+                </div>
+                <div class="colors__choose">
+                    <div class="click-color" id = "blue" value="blue"> </div>
+                    <div>Blue color</div>
+                </div>
+                <div class="colors__choose">
+                    <input class="click-color" type="color" id="choose-color">
+                    <div>Choose color</div>
+                </div>
+            </div>
+        </div>
+        <div class="canvas-area">
+            <div class="loader-images">
+                <div class="loader-images__button" id="load-image"> Load</div>
+                <input id="load-image-input" type="text" value="Minsk"/>
+                <div class="loader-images__button" id="black-and-white">B&W</div>
+            </div>
+            <canvas id="canvas" class="canvas" width="512" height="512"></canvas>
+            <label id="canvas-size-value" >512x512 </label>
+            <input type="range"  id="canvas-size"  min="128" max="512" step="128" value="512">
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="api.js"></script>
+</body>
+</html>
