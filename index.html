@@ -6,6 +6,7 @@
     <title>KeyBoard</title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -56,6 +57,12 @@
             <canvas id="canvas" class="canvas" width="512" height="512"></canvas>
             <label id="canvas-size-value" >512x512 </label>
             <input type="range"  id="canvas-size"  min="128" max="512" step="128" value="512">
+            <div data-netlify-identity-menu></div>
+
+            <!-- Add a simpler button:
+              Simple button that will open the modal.
+            -->
+            <div data-netlify-identity-button>Login with Netlify Identity</div>
         </div>
     </div>
 

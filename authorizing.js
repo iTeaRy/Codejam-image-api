@@ -2,33 +2,23 @@ const authorizingBtn = document.getElementById('authorizing');
 const clienId = 'b55df3b0d2e53b36ec7c';
 const clientSecret = '6b9f7f50d4618c19d0dd6c758604e46e3b4f0c95';
 const callback = 'https://iteary.github.io/Codejam-image-api';
-authorizingBtn.onclick = registration;
-let isNew = true;
+netlifyIdentity.open();
 
-async function getAuthorizing() {
-    isNew = false;
-    window.location = `https://github.com/login/oauth/authorize?client_id=${clienId}&redirect_uri=${callback}`;
+// Get the current user:
+const user = netlifyIdentity.currentUser();
 
-}
+// Bind to events
+netlifyIdentity.on('init', user => console.log('init', user));
+netlifyIdentity.on('login', user => console.log('login', user));
+netlifyIdentity.on('logout', () => console.log('Logged out'));
+netlifyIdentity.on('error', err => console.error('Error', err));
+netlifyIdentity.on('open', () => console.log('Widget opened'));
+netlifyIdentity.on('close', () => console.log('Widget closed'));
 
-async function registration() {
-    if (isNew) { getAuthorizing() } else {
+// Close the modal
+netlifyIdentity.close();
 
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://github.com/login/oauth/authorize', false);
-
-        xhr.send();
-
-// 4. Если код ответа сервера не 200, то это ошибка
-        if (xhr.status != 200) {
-            // обработать ошибку
-            alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
-        } else {
-            // вывести результат
-            alert( xhr.responseText ); // responseText -- текст ответа.
-        }
-
-    }
-}
+// Log out the user
+netlifyIdentity.logout();
 
 
