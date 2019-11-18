@@ -201,13 +201,9 @@ function getDrawing() {
         img.crossOrigin = 'Anonymous';
         img.src = dataURL;
         img.onload = function () {
-            if ( img.width <= canvas.width || img.height <= canvas.height) {
-                context.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
-            } else {
-                img.width = canvas.width;
-                img.height = canvas.height;
-                context.drawImage(img, canvas.width/16-canvas.width/4, canvas.height/16-canvas.height/4);
-            }
+
+                context.drawImage(img, 0, 0,canvas.width,canvas.height);
+
         };
     }
 }

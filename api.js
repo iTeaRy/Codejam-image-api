@@ -38,7 +38,8 @@ function drawImageFromApi(imgURL) {
             context.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
         } else {
             img.width = canvas.width;
-            context.drawImage(img, 0, 0);
+            img.height = canvas.height;
+            context.drawImage(img, 0, 0,canvas.width,canvas.height);
         }
     };
 }
