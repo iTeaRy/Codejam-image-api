@@ -75,7 +75,7 @@ function resetCanvasEvents() {
 function penClick() {
     selectedInstrument = 'instruments__pen';
     let sizeParametr = 512/canvas.width;
-    context.lineWidth = 0;
+    context.lineWidth = 4/sizeParametr;
     resetCanvasEvents();
     changeCursor('pen');
     let drawing = false;
@@ -183,6 +183,8 @@ function setCanvasSize() {
     setCanvasSizeAfterReload(this.value);
     localStorage.setItem('canvasSize', canvas.width);
     getDrawing();
+    context.imageSmoothingEnabled = false;
+    context.webkitImageSmoothingEnabled = false;
     setInstrument(localStorage.getItem('instrument'));
     visualPrevAndCurrentColors();
 }
