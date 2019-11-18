@@ -21,7 +21,8 @@ anchorTag.addEventListener('click', (e) => {
 
 function setUserData (data) {
     userName.innerHTML = `You login as ${data.login}`;
-    userAvatar.style.background = `url('${data.avatar_url}')`;
+    console.log(data.avatar_url);
+    userAvatar.style.backgroundImage  = `url(${data.avatar_url})`;
 }
 
 async function getResponse(token) {
