@@ -29,5 +29,5 @@ async function getResponse(token) {
             }
         });
     let data = await resp.json();
-    console.log(data, 'data');
+    console.log(data.login, 'data');
 }
