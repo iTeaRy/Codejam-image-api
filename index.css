@@ -151,7 +151,41 @@
     background: #4CAF50;
     cursor: pointer;
 }
+#user {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    -webkit-box-shadow: inset 0px 0px 29px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 29px -17px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 29px -17px rgba(0,0,0,0.75);
 
+}
+#login-button {
+    position: absolute;
+    top: 10px;
+    right: 170px;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0px 0px 29px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 29px -17px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 29px -17px rgba(0,0,0,0.75);
+}
 
 @keyframes scale-up-center {
     0% {

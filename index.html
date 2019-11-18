@@ -10,6 +10,8 @@
 </head>
 <body>
     <div class="wrapper">
+        <a href="#" id="login"><div id="login-button">Login with GitHub</div></a>
+        <div id="user">Incognito</div>
         <div>
             <div class="instruments">
                 <div id="instruments__pen" class="instruments-button">
@@ -57,18 +59,8 @@
             <canvas id="canvas" class="canvas" width="512" height="512"></canvas>
             <label id="canvas-size-value" >512x512 </label>
             <input type="range"  id="canvas-size"  min="128" max="512" step="128" value="512">
-            <div data-netlify-identity-menu></div>
-
-            <!-- Add a simpler button:
-              Simple button that will open the modal.
-            -->
-            <div data-netlify-identity-button>Login with Netlify Identity</div>
         </div>
     </div>
-
-    <h1>GitHub Auth Demo:</h1>
-    <p><a href="#" id="login">Authenticate</a></p>
-    <p id="output"></p>
     <script src="script.js"></script>
     <script src="api.js"></script>
     <script src="authorizing.js"></script>
