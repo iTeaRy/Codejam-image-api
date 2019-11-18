@@ -3,7 +3,8 @@ const clienId = 'b55df3b0d2e53b36ec7c';
 const clientSecret = '6b9f7f50d4618c19d0dd6c758604e46e3b4f0c95';
 const callback = 'https://iteary.github.io/Codejam-image-api';
 const anchorTag = document.getElementById('login');
-const outputUser = document.getElementById('user');
+const userName = document.getElementById('user');
+const userAvatar = document.getElementById('avatar');
 anchorTag.addEventListener('click', (e) => {
     e.preventDefault()
     const authenticator = new netlify.default ({})
@@ -19,7 +20,8 @@ anchorTag.addEventListener('click', (e) => {
 });
 
 function setUserData (data) {
-    outputUser.innerHTML = `You login as ${data.login}`;
+    userName.innerHTML = `You login as ${data.login}`;
+    userAvatar.style.background = url(`${data.avatar_url}`);
 }
 
 async function getResponse(token) {
