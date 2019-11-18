@@ -28,5 +28,6 @@ async function getResponse(token) {
                 'Authorization': `token ${token}`,
             }
         });
-    console.log(resp);
+    let data = await resp.json();
+    console.log(data, 'data');
 }
