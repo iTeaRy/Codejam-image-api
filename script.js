@@ -185,11 +185,6 @@ function setCanvasSize() {
     getDrawing();
     setInstrument(localStorage.getItem('instrument'));
     visualPrevAndCurrentColors();
-    imageSize.sx = 0;
-    imageSize.sy = 0;
-    imageSize.height = this.value;
-    imageSize.width = this.value;
-
 }
 
 function saveDrawing() {
