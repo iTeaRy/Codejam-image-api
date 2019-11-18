@@ -23,6 +23,7 @@ function setUserData (data) {
     userName.innerHTML = `You login as ${data.login}`;
     console.log(data.avatar_url);
     userAvatar.style.backgroundImage  = `url(${data.avatar_url})`;
+    userAvatar.style.backgroundSize = 'contain';
 }
 
 async function getResponse(token) {
