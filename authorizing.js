@@ -8,19 +8,24 @@ anchorTag.addEventListener('click', (e) => {
     e.preventDefault()
     const authenticator = new netlify.default ({})
     authenticator.authenticate({provider:"github", scope: "user"}, (err, data) => {
-        err ? outputText.innerText = "Error Authenticating with GitHub: " + err :
-            outputText.innerText = "Authenticated with GitHub. Access Token: " + data.token
+        if (err) {
+            outputText.innerText = "Error Authenticating with GitHub: " + err;
+        } else {
+            outputText.innerText = "Authenticated with GitHub. Access Token: " + data.token;
+            getResponse(data.token);
+        }
+
     });
-    getResponse();
+
 });
 
 
 
-async function getResponse() {
+async function getResponse(token) {
     const resp =  await fetch('https://api.github.com/user',
         {
             headers: {
-                'Authorization': ' token OAUTH-TOKEN',
+                'Authorization': `${token} OAUTH-TOKEN`,
             }
         });
     console.log(resp);
