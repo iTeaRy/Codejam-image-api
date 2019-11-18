@@ -11,11 +11,14 @@ login.addEventListener('click', (e) => {
                 alert(`Error Authenticating with GitHub: ${err}`);
             } else {
                 getResponse(data.token);
+                isLogin = true;
             }
 
         });
     } else {
         unSetUserData();
+        isLogin = false;
+
     }
 
 
