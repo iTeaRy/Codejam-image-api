@@ -30,5 +30,6 @@ async function getResponse(token) {
             }
         });
     let data = await resp.json();
+    console.log(data);
     setUserData(data);
 }
