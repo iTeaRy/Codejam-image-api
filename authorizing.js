@@ -25,7 +25,7 @@ async function getResponse(token) {
     const resp =  await fetch('https://api.github.com/user',
         {
             headers: {
-                'Authorization': `${token} OAUTH-TOKEN`,
+                'Authorization': `token ${token}`,
             }
         });
     console.log(resp);
