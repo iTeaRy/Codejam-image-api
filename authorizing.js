@@ -1,27 +1,35 @@
-const authorizingBtn = document.getElementById('authorizing');
-const clienId = 'b55df3b0d2e53b36ec7c';
-const clientSecret = '6b9f7f50d4618c19d0dd6c758604e46e3b4f0c95';
-const callback = 'https://iteary.github.io/Codejam-image-api';
-const anchorTag = document.getElementById('login');
+let isLogin = false;
+const login = document.getElementById('login');
 const userName = document.getElementById('user');
 const userAvatar = document.getElementById('avatar');
-anchorTag.addEventListener('click', (e) => {
-    e.preventDefault()
-    const authenticator = new netlify.default ({})
-    authenticator.authenticate({provider:"github", scope: "user"}, (err, data) => {
-        if (err) {
-            alert(`Error Authenticating with GitHub: ${err}`);
-        } else {
-            getResponse(data.token);
-        }
+login.addEventListener('click', (e) => {
+    if(!isLogin) {
+        e.preventDefault()
+        const authenticator = new netlify.default ({})
+        authenticator.authenticate({provider:"github", scope: "user"}, (err, data) => {
+            if (err) {
+                alert(`Error Authenticating with GitHub: ${err}`);
+            } else {
+                getResponse(data.token);
+            }
 
-    });
+        });
+    } else {
+        unSetUserData();
+    }
+
 
 });
 
+function unSetUserData () {
+    login.innerHTML = 'Login with GitHub';
+    userName.innerHTML = `Incognito`;
+    userAvatar.style.background  = '#000000';
+}
+
 function setUserData (data) {
+    login.innerHTML = 'Login out';
     userName.innerHTML = `You login as ${data.login}`;
-    console.log(data.avatar_url);
     userAvatar.style.backgroundImage  = `url(${data.avatar_url})`;
     userAvatar.style.backgroundSize = 'contain';
 }
@@ -34,6 +42,5 @@ async function getResponse(token) {
             }
         });
     let data = await resp.json();
-    console.log(data);
     setUserData(data);
 }
